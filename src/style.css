@@ -7,19 +7,51 @@ h1 {
   height: 27.78px;
   line-height: 28.8px;
   text-align: left;
-}
-.weather-app {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  border: 1px solid #dadde1;
-  border-radius: 10px;
+  margin-bottom: 0;
 }
 li {
   list-style: none;
   color: grey;
   font-weight: 100px;
   line-height: 19px;
+}
+ul {
   margin: 0;
   padding: 0;
+}
+
+.weather-app {
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+}
+.weather-wrap {
+  max-width: 600px;
+  margin: 30px auto;
+}
+.overview {
+  margin-bottom: 20px;
+}
+.weather-temperature img {
+  margin-right: 10px;
+  height: 64px;
+  width: 64px;
+  float: left;
+}
+.weather-temperature strong {
+  font-weight: 400;
+  line-height: 64px;
+  font-size: 64px;
+  float: left;
+}
+.weather-temperature .units {
+  position: relative;
+  font-size: 16px;
+  top: 5px;
+}
+.weather-temperature .units a {
+  text-decoration: none;
+}
+.weather-temperature .units a:hover {
+  text-decoration: underline;
 }
