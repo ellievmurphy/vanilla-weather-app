@@ -55,3 +55,7 @@ ul {
 .weather-temperature .units a:hover {
   text-decoration: underline;
 }
+
+#weatherDesc {
+  text-transform: capitalize;
+}
