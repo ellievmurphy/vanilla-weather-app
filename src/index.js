@@ -4,11 +4,17 @@ function displayTemp(response) {
   let descElement = document.querySelector("#weatherDesc");
   let humidElement = document.querySelector("#humidHeader");
   let windElement = document.querySelector("#windHeader");
+  let iconElement = document.querySelector("#weatherIcon");
   tempElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descElement.innerHTML = response.data.weather[0].description;
   humidElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", "response.data.weather[0].description");
 }
 function formatDate(currTime) {
   let days = [
