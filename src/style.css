@@ -60,12 +60,17 @@ ul {
 .weather-temperature .units a {
   text-decoration: none;
 }
-.weather-temperature .units a:hover {
-  text-decoration: underline;
-}
 .form-control {
   margin-bottom: 10px;
 }
+.weather-temperature .active {
+  color: #212529;
+  cursor: default;
+}
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+
 #weatherDesc {
   text-transform: capitalize;
 }
