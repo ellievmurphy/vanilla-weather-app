@@ -30,7 +30,7 @@ ul {
   padding: 20px;
   border: 1px solid #6f7d5c;
   border-radius: 10px;
-  box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+  box-shadow: rgba(27, 29, 63, 0.08) 0px 8px 8px 0;
   background: #9caf88;
 }
 .weather-wrap {
@@ -63,7 +63,9 @@ ul {
 .weather-temperature .units a:hover {
   text-decoration: underline;
 }
-
+.form-control {
+  margin-bottom: 10px;
+}
 #weatherDesc {
   text-transform: capitalize;
 }

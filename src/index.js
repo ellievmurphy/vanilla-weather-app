@@ -37,12 +37,20 @@ function formatDate(currTime) {
   }
   return `${day} ${hour}:${minutes}`;
 }
+function search(city) {
+  let apiKey = "58998f2f1d96bf70dbdd7f7a20868eb4";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemp);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
 
 let currTime = new Date();
-let apiKey = "58998f2f1d96bf70dbdd7f7a20868eb4";
-let cityName = "New York";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
 let timeElement = document.querySelector("#timeHeader");
 timeElement.innerHTML = formatDate(currTime);
 
-axios.get(apiUrl).then(displayTemp);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
