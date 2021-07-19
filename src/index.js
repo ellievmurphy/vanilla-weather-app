@@ -41,7 +41,7 @@ function formatDate(currTime) {
 let currTime = new Date();
 let apiKey = "58998f2f1d96bf70dbdd7f7a20868eb4";
 let cityName = "New York";
-let apiUrl = `https:api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
 let timeElement = document.querySelector("#timeHeader");
 timeElement.innerHTML = formatDate(currTime);
 
