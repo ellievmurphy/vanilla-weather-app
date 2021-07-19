@@ -54,6 +54,8 @@ function displayFahrenheitTemp(event) {
   event.preventDefault();
   convertCel.classList.remove("active");
   convertFah.classList.add("active");
+  convertFah.classList.remove("inactive");
+  convertCel.classList.add("inactive");
   let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
   let tempElement = document.querySelector("#tempHeader");
   tempElement.innerHTML = fahrenheitTemp;
@@ -61,7 +63,10 @@ function displayFahrenheitTemp(event) {
 function displayCelsiusTemp(event) {
   event.preventDefault();
   convertFah.classList.remove("active");
+  convertCel.classList.remove("inactive");
   convertCel.classList.add("active");
+  convertFah.classList.add("inactive");
+
   let tempElement = document.querySelector("#tempHeader");
   tempElement.innerHTML = celsiusTemp;
 }

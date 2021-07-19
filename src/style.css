@@ -70,6 +70,9 @@ ul {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
+.weather-temperature .inactive:hover {
+  color: #212529;
+}
 
 #weatherDesc {
   text-transform: capitalize;
