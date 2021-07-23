@@ -73,6 +73,22 @@ ul {
 .weather-temperature .inactive:hover {
   color: #212529;
 }
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: black;
+}
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+.weather-forecast-min {
+  opacity: 0.5;
+}
+.weather-forecast-temp {
+  font-size: 13px;
+  color: black;
+}
 
 #weatherDesc {
   text-transform: capitalize;
