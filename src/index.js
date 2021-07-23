@@ -42,6 +42,13 @@ function formatDate(currTime) {
   }
   return `${day} ${hour}:${minutes}`;
 }
+function formatDay(timestamp) {
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  return days[day];
+}
 function search(city) {
   let apiKey = "58998f2f1d96bf70dbdd7f7a20868eb4";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -74,25 +81,31 @@ function displayCelsiusTemp(event) {
 }
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.daily;
   let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML += `
       <div class="col-2">
-        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         <img
-          src="https://ssl.gstatic.com/onebox/weather/48/sunny_s_cloudy.png"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           alt=""
           width="36"
         />
         <div class="weather-forecast-temp">
-          <span class="weather-forecast-max">18</span>
-          <span class="weather-forecast-min">12</span>
+          <span class="weather-forecast-max">${Math.round(
+            forecastDay.temp.max
+          )}°</span>
+          <span class="weather-forecast-min">${Math.round(
+            forecastDay.temp.min
+          )}°</span>
         </div>
       </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -119,4 +132,3 @@ convertFah.addEventListener("click", displayFahrenheitTemp);
 convertCel.addEventListener("click", displayCelsiusTemp);
 
 search("New York");
-displayForecast();
