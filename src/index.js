@@ -70,6 +70,32 @@ function displayCelsiusTemp(event) {
   let tempElement = document.querySelector("#tempHeader");
   tempElement.innerHTML = celsiusTemp;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+          src="https://ssl.gstatic.com/onebox/weather/48/sunny_s_cloudy.png"
+          alt=""
+          width="36"
+        />
+        <div class="weather-forecast-temp">
+          <span class="weather-forecast-max">18</span>
+          <span class="weather-forecast-min">12</span>
+        </div>
+      </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 let currTime = new Date();
 let timeElement = document.querySelector("#timeHeader");
@@ -85,3 +111,4 @@ convertFah.addEventListener("click", displayFahrenheitTemp);
 convertCel.addEventListener("click", displayCelsiusTemp);
 
 search("New York");
+displayForecast();
